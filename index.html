@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- https://developer.mozilla.org/en-US/docs/Web/HTML/Preloading_content -->
+  <link rel="preload" href="./static/css/styles.css" as="style">
+  <link rel="preload" href="./static/scripts/main.js" as="script">
+  <link rel="stylesheet" href="./static/css/styles.css">
+  <title>Progressive enhancement</title>
+</head>
+
+<body>
+  <form action="handleEnquette" method="post" id="wafs">
+
+    <h1>Enquette minor web</h1>
+
+    <fieldset>
+      <legend>Jouw gegegevns:</legend>
+      <h2>Jouw gegevens</h2>
+      <div>
+        <label for="name">Je naam:</label>
+        <input type="text" name="name" id="name" placeholder="Jouw naam" pattern="[A-Za-z]+" required>
+        <label for="studentnummer">studentnummer:</label>
+        <input type="text" name="studentnummer" id="studentnummer" placeholder="500123456" pattern="[0-9]{9}" required>
+      </div>
+    </fieldset>
+
+
+
+    <fieldset>
+      <legend>Webapps from scratch:</legend>
+
+      <div>
+        <h2>Welk docent?</h2>
+
+        <div>
+          <label for="docent1">Docent 1</label>
+          <input type="radio" name="wafs-docent" id="docent1" required>
+          <label for="docent2">Docent 2</label>
+          <input type="radio" name="wafs-docent" id="docent2">
+        </div>
+      </div>
+
+      <div>
+        <h2>Welke weken?</h2>
+        <div>
+          <span>Van week: </span>
+          <label for="weekStart"><input type="number" name="wafs-week" id="weekStart" min="0" max="52" required></label>
+          <span>tot week: </span>
+          <label for="weekEnd"> <input type="number" name="wafs-week" id="weekEnd" min="0" max="52" required></label>
+        </div>
+      </div>
+
+      <div>
+        <h2>Beoordeling:</h2>
+        <div>
+          <label for="wafs-beoordeling-radio-0">0</label>
+          <input type="radio" name="wafs-beoordeling" id="wafs-beoordeling-radio-0" required>
+          <label for="wafs-beoordeling-radio-1">1</label>
+          <input type="radio" name="wafs-beoordeling" id="wafs-beoordeling-radio-1">
+          <label for="wafs-beoordeling-radio-2">2</label>
+          <input type="radio" name="wafs-beoordeling" id="wafs-beoordeling-radio-2">
+          <label for="wafs-beoordeling-radio-3">3</label>
+          <input type="radio" name="wafs-beoordeling" id="wafs-beoordeling-radio-3">
+          <label for="wafs-beoordeling-radio-4">4</label>
+          <input type="radio" name="wafs-beoordeling" id="wafs-beoordeling-radio-4">
+          <label for="wafs-beoordeling-radio-5">5</label>
+          <input type="radio" name="wafs-beoordeling" id="wafs-beoordeling-radio-5">
+          <label for="wafs-beoordeling-radio-6">6</label>
+          <input type="radio" name="wafs-beoordeling" id="wafs-beoordeling-radio-6">
+          <label for="wafs-beoordeling-radio-7">7</label>
+          <input type="radio" name="wafs-beoordeling" id="wafs-beoordeling-radio-7">
+          <label for="wafs-beoordeling-radio-8">8</label>
+          <input type="radio" name="wafs-beoordeling" id="wafs-beoordeling-radio-8">
+          <label for="wafs-beoordeling-radio-9">9</label>
+          <input type="radio" name="wafs-beoordeling" id="wafs-beoordeling-radio-9">
+          <label for="wafs-beoordeling-radio-10">10</label>
+          <input type="radio" name="wafs-beoordeling" id="wafs-beoordeling-radio-10">
+        </div>
+      </div>
+
+      <div>
+        <h2>Lesstof</h2>
+        <div>
+          <label for="wafs-lesstof-radio-0">makkelijk</label>
+          <input type="radio" name="wafs-lesstof" id="wafs-lesstof-radio-0">
+          <label for="wafs-lesstof-radio-1">wel oke</label>
+          <input type="radio" name="wafs-lesstof" id="wafs-lesstof-radio-1">
+          <label for="wafs-lesstof-radio-2">lastig</label>
+          <input type="radio" name="wafs-lesstof" id="wafs-lesstof-radio-2">
+        </div>
+      </div>
+
+      <div>
+        <h2>Uitleg</h2>
+        <div>
+          <label for="wafs-uitleg-radio-0">makkelijk</label>
+          <input type="radio" name="wafs-uitleg" id="wafs-uitleg-radio-0">
+          <label for="wafs-uitleg-radio-1">wel oke</label>
+          <input type="radio" name="wafs-uitleg" id="wafs-uitleg-radio-1">
+          <label for="wafs-uitleg-radio-2">lastig</label>
+          <input type="radio" name="wafs-uitleg" id="wafs-uitleg-radio-2">
+        </div>
+      </div>
+
+
+      <div>
+        <h2>Eigen inzichten</h2>
+        <textarea name="wafs-eigeninzichten" id="wafs-eigeninzichten-0" cols="30" rows="10"
+          placeholder='Eigen inzichten'></textarea>
+      </div>
+
+    </fieldset>
+
+    <button type="submit">Submit</button>
+  </form>
+  <script src="./static/scripts/main.js" defer></script>
+
+</body>
+
+</html>
