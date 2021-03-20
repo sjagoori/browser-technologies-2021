@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<%- include('partials/head', { title: "Homepage" , css: "styles" })%>
+
+  <body>
+
+    <form action="handleEnquette" method="post" id="enquette" hash=<%=hash %>>
+      <%= console.log(recurring.userData) %>
+
+        <h1>Enquette minor web</h1>
+        <h2>Welkom terug <%= recurring.userData.name %></h2>
+
+        <fieldset>
+          <legend>Jouw gegevens:</legend>
+          <h2>Jouw gegevens</h2>
+          <div>
+            <label for="name">Je naam:</label>
+            <input value="<%= recurring.userData.name %>" type="text" name="name" id="name" placeholder="Jouw naam"
+              pattern="^\w+( \w+)*$" title="Voer hier je naam in.">
+            <label for="studentnummer">studentnummer:</label>
+            <input value="<%= recurring.userData.studentnummer %>" type="text" name="studentnummer" id="studentnummer"
+              placeholder="500123456" pattern="[0-9]{9}" title="Voer hier je studentnummer in.">
+          </div>
+        </fieldset>
+
+        <% for (var i=0; i < templateData.vak.length; i++) { %>
+
+
+          <fieldset>
+            <legend>
+              <%= templateData.vak[i].title %>:
+            </legend>
+
+            <div>
+              <h2>Welk docent?</h2>
+              <div>
+
+                <% if (typeof templateData.vak[i].docent !='undefined' ) { %>
+
+                  <% for (var j=0; j < templateData.vak[i].docent.length; j++) { %>
+                    <label for="<%= templateData.vak[i].short%>-docent-<%= j %>">
+                      <%= templateData.vak[i].docent[j].voornaam %>
+                    </label>
+                    <input type="radio" value="<%= templateData.vak[i].docent[j].voornaam %>"
+                      name="<%= templateData.vak[i].short%>-docent"
+                      id="<%= templateData.vak[i].short%>-docent-<%= j %>">
+                    <% } %>
+
+                      <% } %>
+
+
+
+              </div>
+            </div>
+
+            <div>
+              <h2>Welke weken?</h2>
+              <div>
+                <span>Van week: </span>
+                <label for="weekStart"><input type="number" name="<%= templateData.vak[i].short %>-week" id="weekStart"
+                    min="0" max="52"></label>
+                <span>tot week: </span>
+                <label for="weekEnd"> <input type="number" name="<%= templateData.vak[i].short %>-week" id="weekEnd"
+                    min="0" max="52"></label>
+              </div>
+            </div>
+
+            <div>
+              <h2>Beoordeling:</h2>
+              <div>
+                <% for (var j=0; j < 11; j++) { %>
+                  <label for="<%= templateData.vak[i].short %>-beoordeling-radio-<%= j%>">
+                    <%= j %>
+                  </label>
+                  <input type="radio" name="<%= templateData.vak[i].short %>-beoordeling" value="<%= j %>"
+                    id="<%= templateData.vak[i].short %>-beoordeling-radio-<%= j%>">
+                  <% } %>
+              </div>
+            </div>
+
+            <div>
+              <h2>Lesstof</h2>
+              <div>
+                <label for="<%= templateData.vak[i].short %>-lesstof-radio-0">makkelijk</label>
+                <input type="radio" name="<%= templateData.vak[i].short %>-lesstof" value="makkelijk"
+                  id="<%= templateData.vak[i].short %>-lesstof-radio-0">
+                <label for="<%= templateData.vak[i].short %>-lesstof-radio-1">wel oke</label>
+                <input type="radio" name="<%= templateData.vak[i].short %>-lesstof" value="wel oke"
+                  id="<%= templateData.vak[i].short %>-lesstof-radio-1">
+                <label for="<%= templateData.vak[i].short %>-lesstof-radio-2">lastig</label>
+                <input type="radio" name="<%= templateData.vak[i].short %>-lesstof" value="lastig"
+                  id="<%= templateData.vak[i].short %>-lesstof-radio-2">
+              </div>
+            </div>
+
+            <div>
+              <h2>Uitleg</h2>
+              <div>
+                <label for="<%= templateData.vak[i].short %>-uitleg-radio-0">makkelijk</label>
+                <input type="radio" name="<%= templateData.vak[i].short %>-uitleg" value="makkelijk"
+                  id="<%= templateData.vak[i].short %>-uitleg-radio-0">
+                <label for="<%= templateData.vak[i].short %>-uitleg-radio-1">wel oke</label>
+                <input type="radio" name="<%= templateData.vak[i].short %>-uitleg" value="wel oke"
+                  id="<%= templateData.vak[i].short %>-uitleg-radio-1">
+                <label for="<%= templateData.vak[i].short %>-uitleg-radio-2">lastig</label>
+                <input type="radio" name="<%= templateData.vak[i].short %>-uitleg" value="lastig"
+                  id="<%= templateData.vak[i].short %>-uitleg-radio-2">
+              </div>
+            </div>
+
+
+            <div>
+              <h2>Eigen inzichten</h2>
+              <textarea name="<%= templateData.vak[i].short %>-eigeninzichten"
+                id="<%= templateData.vak[i].short %>-eigeninzichten-0" cols="30" rows="10" placeholder='Eigen inzichten'
+                value=></textarea>
+            </div>
+
+          </fieldset>
+
+          <% } %>
+            <button type="submit" formaction="saveProgress">Save progress</button>
+            <button type="submit">Submit</button>
+    </form>
+  </body>
+
+</html>
