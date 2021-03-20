@@ -1,0 +1,16 @@
+{
+  "vak": [
+    {
+      "title": "Webapps from scratch",
+      "short": "wafs",
+      "docent": [
+        {
+          "voornaam": "Docent 1"
+        },
+        {
+          "voornaam": "Docent 2"
+        }
+      ]
+    }
+  ]
+}

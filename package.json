@@ -1,0 +1,42 @@
+{
+  "name": "browser-technologies-2021",
+  "version": "1.0.0",
+  "description": "//Robuuste, toegankelijke websites ontwerpen en maken …",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "prestart": "npm run build",
+    "start": "nodemon ./index.js",
+    "prebuild": "rimraf ./dist",
+    "build": "npm-run-all build:static:* && npm run build:html",
+    "build:html": "node scripts/build-html.js",
+    "build:static:css": "node scripts/build-css.js",
+    "build:static:script": "node scripts/build-assets.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sjagoori/browser-technologies-2021.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sjagoori/browser-technologies-2021/issues"
+  },
+  "homepage": "https://github.com/sjagoori/browser-technologies-2021#readme",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "ejs": "^3.1.6",
+    "express": "^4.17.1",
+    "express-fingerprint": "^1.2.2",
+    "express-session": "^1.17.1",
+    "gulp": "^4.0.2",
+    "gulp-autoprefixer": "^7.0.1",
+    "gulp-clean-css": "^4.3.0",
+    "gulp-concat": "^2.6.1",
+    "npm-run-all": "^4.1.5",
+    "rimraf": "^3.0.2"
+  }
+}
