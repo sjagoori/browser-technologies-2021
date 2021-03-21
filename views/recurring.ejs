@@ -24,6 +24,18 @@
           </div>
         </fieldset>
 
+        <fieldset>
+          <legend>Vakken</legend>
+          <% for (var i=0; i < vakken.length; i++) { %>
+            <label for="vakken-<%= vakken[i].short %>"><%= vakken[i].title %></label>
+            <input type="radio" value="<%= vakken[i].short %>"
+            name="vakken-<%= vakken[i].short %>"
+            id="vakken-<%= vakken[i].short %>">
+          <% } %>
+
+        </fieldset>
+
+
         <% for (var i=0; i < templateData.vak.length; i++) { %>
 
 
