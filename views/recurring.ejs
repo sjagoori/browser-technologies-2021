@@ -4,7 +4,6 @@
 <%- include('partials/head', { title: "Homepage" , css: "styles" })%>
 
   <body>
-
     <form action="handleEnquette" method="post" id="enquette" hash=<%=hash %>>
       <%= console.log(recurring.userData) %>
 
@@ -25,21 +24,21 @@
         </fieldset>
 
         <fieldset>
-          <legend>Vakken</legend>
-          <% for (var i=0; i < vakken.length; i++) { %>
-            <label for="vakken-<%= vakken[i].short %>"><%= vakken[i].title %></label>
-            <input type="radio" value="<%= vakken[i].short %>"
-            name="vakken-<%= vakken[i].short %>"
-            id="vakken-<%= vakken[i].short %>">
-          <% } %>
-
+          <legend>Navigeer naar vak:</legend>
+          <nav>
+            <ul>
+              <% for (var i=0; i < vakken.length; i++) { %>
+                <li><a href="#<%= vakken[i].short %>" ><%= vakken[i].title %></a></li>
+              <% } %>
+            </ul>
+          </nav>
         </fieldset>
 
 
         <% for (var i=0; i < templateData.vak.length; i++) { %>
 
 
-          <fieldset>
+          <fieldset id="<%= templateData.vak[i].short%>">
             <legend>
               <%= templateData.vak[i].title %>:
             </legend>
