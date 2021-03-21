@@ -22,10 +22,21 @@
         </div>
       </fieldset>
 
+      <fieldset>
+        <legend>Navigeer naar vak:</legend>
+        <nav>
+          <ul>
+            <% for (var i=0; i < vakken.length; i++) { %>
+              <li><a href="#<%= vakken[i].short %>" ><%= vakken[i].title %></a></li>
+            <% } %>
+          </ul>
+        </nav>
+      </fieldset>
+
       <% for (var i=0; i < templateData.vak.length; i++) { %>
 
 
-        <fieldset>
+        <fieldset id="<%= templateData.vak[i].short%>">
           <legend>
             <%= templateData.vak[i].title %>:
           </legend>
