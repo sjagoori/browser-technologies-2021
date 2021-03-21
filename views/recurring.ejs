@@ -42,9 +42,20 @@
                     <label for="<%= templateData.vak[i].short%>-docent-<%= j %>">
                       <%= templateData.vak[i].docent[j].voornaam %>
                     </label>
-                    <input type="radio" value="<%= templateData.vak[i].docent[j].voornaam %>"
+
+
+                    <% console.log(recurring.userData[templateData.vak[i].short+"-docent"] )%>
+
+                    <% if( recurring.userData[templateData.vak[i].short+"-docent"] == templateData.vak[i].docent[j].voornaam ) {%>
+                      <input type="radio" value="<%= templateData.vak[i].docent[j].voornaam %>"
+                        name="<%= templateData.vak[i].short%>-docent"
+                        id="<%= templateData.vak[i].short%>-docent-<%= j %>" checked>
+                    <% }else{%>
+                      <input type="radio" value="<%= templateData.vak[i].docent[j].voornaam %>"
                       name="<%= templateData.vak[i].short%>-docent"
                       id="<%= templateData.vak[i].short%>-docent-<%= j %>">
+                    <% } %>
+
                     <% } %>
 
                       <% } %>
@@ -58,10 +69,10 @@
               <h2>Welke weken?</h2>
               <div>
                 <span>Van week: </span>
-                <label for="weekStart"><input type="number" name="<%= templateData.vak[i].short %>-week" id="weekStart"
+                <label for="weekStart"><input value="<%= recurring.userData[templateData.vak[i].short+"-week"][0] %>" type="number" name="<%= templateData.vak[i].short %>-week" id="weekStart"
                     min="0" max="52"></label>
                 <span>tot week: </span>
-                <label for="weekEnd"> <input type="number" name="<%= templateData.vak[i].short %>-week" id="weekEnd"
+                <label for="weekEnd"> <input value="<%= recurring.userData[templateData.vak[i].short+"-week"][1] %>" type="number" name="<%= templateData.vak[i].short %>-week" id="weekEnd"
                     min="0" max="52"></label>
               </div>
             </div>
@@ -73,6 +84,10 @@
                   <label for="<%= templateData.vak[i].short %>-beoordeling-radio-<%= j%>">
                     <%= j %>
                   </label>
+                  <% if (j == recurring.userData[templateData.vak[i].short+"-beoordeling"] ) { %>
+                    <input type="radio" name="<%= templateData.vak[i].short %>-beoordeling" value="<%= j %>"
+                    id="<%= templateData.vak[i].short %>-beoordeling-radio-<%= j%>" checked>
+                    <% } %>
                   <input type="radio" name="<%= templateData.vak[i].short %>-beoordeling" value="<%= j %>"
                     id="<%= templateData.vak[i].short %>-beoordeling-radio-<%= j%>">
                   <% } %>
@@ -83,14 +98,31 @@
               <h2>Lesstof</h2>
               <div>
                 <label for="<%= templateData.vak[i].short %>-lesstof-radio-0">makkelijk</label>
-                <input type="radio" name="<%= templateData.vak[i].short %>-lesstof" value="makkelijk"
+                <% if (recurring.userData[templateData.vak[i].short+"-lesstof"] == 'makkelijk') { %>
+                  <input type="radio" name="<%= templateData.vak[i].short %>-lesstof" value="makkelijk"
+                  id="<%= templateData.vak[i].short %>-lesstof-radio-0" checked>
+                <%}else{%>
+                  <input type="radio" name="<%= templateData.vak[i].short %>-lesstof" value="makkelijk"
                   id="<%= templateData.vak[i].short %>-lesstof-radio-0">
+                <%}%>
+                  
                 <label for="<%= templateData.vak[i].short %>-lesstof-radio-1">wel oke</label>
-                <input type="radio" name="<%= templateData.vak[i].short %>-lesstof" value="wel oke"
+                <% if (recurring.userData[templateData.vak[i].short+"-lesstof"] == 'wel oke') { %>
+                  <input type="radio" name="<%= templateData.vak[i].short %>-lesstof" value="wel oke"
+                  id="<%= templateData.vak[i].short %>-lesstof-radio-1" checked>
+                <%}else{%>
+                  <input type="radio" name="<%= templateData.vak[i].short %>-lesstof" value="wel oke"
                   id="<%= templateData.vak[i].short %>-lesstof-radio-1">
+                <%}%>
+
                 <label for="<%= templateData.vak[i].short %>-lesstof-radio-2">lastig</label>
-                <input type="radio" name="<%= templateData.vak[i].short %>-lesstof" value="lastig"
+                <% if (recurring.userData[templateData.vak[i].short+"-lesstof"] == 'lastig') { %>
+                  <input type="radio" name="<%= templateData.vak[i].short %>-lesstof" value="lastig"
+                  id="<%= templateData.vak[i].short %>-lesstof-radio-2" checked>
+                <%}else{%>
+                  <input type="radio" name="<%= templateData.vak[i].short %>-lesstof" value="lastig"
                   id="<%= templateData.vak[i].short %>-lesstof-radio-2">
+                <%}%>
               </div>
             </div>
 
@@ -98,29 +130,56 @@
               <h2>Uitleg</h2>
               <div>
                 <label for="<%= templateData.vak[i].short %>-uitleg-radio-0">makkelijk</label>
-                <input type="radio" name="<%= templateData.vak[i].short %>-uitleg" value="makkelijk"
-                  id="<%= templateData.vak[i].short %>-uitleg-radio-0">
+                  <% if (recurring.userData[templateData.vak[i].short+"-uitleg"] == 'makkelijk') { %>
+                    <input type="radio" name="<%= templateData.vak[i].short %>-uitleg" value="makkelijk"
+                    id="<%= templateData.vak[i].short %>-uitleg-radio-0" checked>
+                  <%}else{%>
+                    <input type="radio" name="<%= templateData.vak[i].short %>-uitleg" value="makkelijk"
+                    id="<%= templateData.vak[i].short %>-uitleg-radio-0">
+                  <%}%>
+                    
+
                 <label for="<%= templateData.vak[i].short %>-uitleg-radio-1">wel oke</label>
-                <input type="radio" name="<%= templateData.vak[i].short %>-uitleg" value="wel oke"
-                  id="<%= templateData.vak[i].short %>-uitleg-radio-1">
+                <% if (recurring.userData[templateData.vak[i].short+"-uitleg"] == 'wel oke') { %>
+                  <input type="radio" name="<%= templateData.vak[i].short %>-uitleg" value="wel oke"
+                  id="<%= templateData.vak[i].short %>-uitleg-radio-0" checked>
+                <%}else{%>
+                  <input type="radio" name="<%= templateData.vak[i].short %>-uitleg" value="wel oke"
+                  id="<%= templateData.vak[i].short %>-uitleg-radio-0">
+                <%}%>
+
                 <label for="<%= templateData.vak[i].short %>-uitleg-radio-2">lastig</label>
-                <input type="radio" name="<%= templateData.vak[i].short %>-uitleg" value="lastig"
-                  id="<%= templateData.vak[i].short %>-uitleg-radio-2">
+                <% if (recurring.userData[templateData.vak[i].short+"-uitleg"] == 'lastig') { %>
+                  <input type="radio" name="<%= templateData.vak[i].short %>-uitleg" value="lastig"
+                  id="<%= templateData.vak[i].short %>-uitleg-radio-0" checked>
+                <%}else{%>
+                  <input type="radio" name="<%= templateData.vak[i].short %>-uitleg" value="lastig"
+                  id="<%= templateData.vak[i].short %>-uitleg-radio-0">
+                <%}%>
               </div>
             </div>
 
 
             <div>
               <h2>Eigen inzichten</h2>
-              <textarea name="<%= templateData.vak[i].short %>-eigeninzichten"
-                id="<%= templateData.vak[i].short %>-eigeninzichten-0" cols="30" rows="10" placeholder='Eigen inzichten'
-                value=></textarea>
+                <% console.log(recurring.userData[templateData.vak[i].short+"-eigeninzichten"].length != 0) %>
+
+                <% if (recurring.userData[templateData.vak[i].short+"-uitleg"] == 'lastig') { %>
+                  <textarea name="<%= templateData.vak[i].short %>-eigeninzichten"
+                    id="<%= templateData.vak[i].short %>-eigeninzichten-0" cols="30" rows="10" placeholder='Eigen inzichten'><%= recurring.userData[templateData.vak[i].short+"-eigeninzichten"] %></textarea>
+                    <% console.log(recurring.userData[templateData.vak[i].short+"-eigeninzichten"]) %>
+                <%}else{%>
+                  <textarea name="<%= templateData.vak[i].short %>-eigeninzichten"
+                    id="<%= templateData.vak[i].short %>-eigeninzichten-0" cols="30" rows="10" placeholder='Eigen inzichten'></textarea>
+                <%}%>
+
+
             </div>
 
+            <button type="submit" formaction="saveProgress">Save progress</button>
           </fieldset>
 
           <% } %>
-            <button type="submit" formaction="saveProgress">Save progress</button>
             <button type="submit">Submit</button>
     </form>
   </body>
