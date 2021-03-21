@@ -7,7 +7,7 @@ const templateData = require('../templateData.json')
 generateHomepage()
 
 async function generateHomepage() {
-  const html = renderTemplate('./views/index.ejs', templateData)
+  const html = renderTemplate('./views/index.ejs', {templateData: templateData, vakken: templateData.vak.map(key => ({title: key.title, short: key.short}))})
   writeFile('./dist', 'index.html', html)
 }
 
