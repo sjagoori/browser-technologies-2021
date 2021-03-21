@@ -9,8 +9,8 @@ router.get('/', async (req, res) => {
   let renderData = formData.find(key=> key.hash == req.fingerprint.hash )
   
   return renderData 
-  ? res.render('recurring', {templateData: templateData, hash: req.fingerprint.hash, recurring: renderData}) 
-  : res.render('index', { templateData: templateData, hash: req.fingerprint.hash })
+  ? res.render('recurring', {templateData: templateData, hash: req.fingerprint.hash, recurring: renderData, vakken: templateData.vak.map(key => ({title: key.title, short: key.short}))}) 
+  : res.render('index', { templateData: templateData, hash: req.fingerprint.hash, vakken: templateData.vak.map(key => ({title: key.title, short: key.short})) })
 })
 
 router.post('/saveProgress', (req, res) => {
