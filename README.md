@@ -19,3 +19,9 @@ Mijn core functionaliteit is het invullen van een enquette. Deze wordt ondersteu
 | Feature | ✅     |                |         |                 |
 | Feature | ❌     |                |         |                 |
 | Feature | ✅     |                |         |                 |
+
+
+## Enhancements
+1. Custom validity messages met javasctipt
+2. Input velden met patterns ondersteunen met CSS (in)valid
+3. Een carousel ontwerp waarbij slecht een van per keer te zien is.
