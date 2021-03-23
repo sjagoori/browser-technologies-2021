@@ -11,6 +11,42 @@
           "voornaam": "Docent 2"
         }
       ]
+    },
+    {
+      "title": "CSS to the rescue",
+      "short": "cssttr",
+      "docent": [
+        {
+          "voornaam": "Docent 1"
+        },
+        {
+          "voornaam": "Docent 2"
+        }
+      ]
+    },
+    {
+      "title": "Progressive webapps",
+      "short": "pwapps",
+      "docent": [
+        {
+          "voornaam": "Docent 1"
+        },
+        {
+          "voornaam": "Docent 2"
+        }
+      ]
+    },
+    {
+      "title": "Browser technologies",
+      "short": "btech",
+      "docent": [
+        {
+          "voornaam": "Docent 1"
+        },
+        {
+          "voornaam": "Docent 2"
+        }
+      ]
     }
   ]
 }
