@@ -14,7 +14,8 @@ Mijn core functionaliteit is het invullen van een enquette. Deze wordt ondersteu
 
 ## Browser testing
 
-| Feature  | Chromium | Firefox |
-| -------- | :------: | ------: |
-| Feature1 |    ✅    |      ❌ |
-| Feature2 |    ❌    |      ✅ |
+| Feature | Chrome | Chrome android | Firefox | Firefox android |
+| ------- | ------ | -------------- | ------- | --------------- |
+| Feature | ✅     |                |         |                 |
+| Feature | ❌     |                |         |                 |
+| Feature | ✅     |                |         |                 |
