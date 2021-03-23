@@ -12,6 +12,10 @@ Mijn core functionaliteit is het invullen van een enquette. Deze wordt ondersteu
 
 ![Wireflow](./assets/wireflow.png)
 
+## Breakdown
+
+![Breakdown](./assets/breakdown.png)
+
 ## Browser testing
 
 | Feature | Chrome | Chrome android | Firefox | Firefox android |
