@@ -15,18 +15,10 @@
           <button type="submit" formaction="/saveProgress">Save progress</button>
         </fieldset>
 
-        <fieldset>
-          <legend>Navigeer naar vak:</legend>
-          <nav>
-            <ul>
-              <% for (var i=0; i < vakken.length; i++) { %>
-                <li><a href="#<%= vakken[i].short %>" ><%= vakken[i].title %></a></li>
-              <% } %>
-            </ul>
-          </nav>
-        </fieldset>
+        <%- include('vakken', {vakken: vakken})%>
 
 
+        <div class="slides">
         <% for (var i=0; i < templateData.vak.length; i++) { %>
 
 
@@ -140,20 +132,20 @@
 
                 <% if (recurring.userData[templateData.vak[i].short+"-uitleg"] == 'wel oke') { %>
                   <input type="radio" name="<%= templateData.vak[i].short %>-uitleg" value="wel oke"
-                  id="<%= templateData.vak[i].short %>-uitleg-radio-0" checked>
+                  id="<%= templateData.vak[i].short %>-uitleg-radio-1" checked>
                 <%}else{%>
                   <input type="radio" name="<%= templateData.vak[i].short %>-uitleg" value="wel oke"
-                  id="<%= templateData.vak[i].short %>-uitleg-radio-0" checked>
+                  id="<%= templateData.vak[i].short %>-uitleg-radio-1" checked>
                 <%}%>
                 <label for="<%= templateData.vak[i].short %>-uitleg-radio-1">wel oke</label>
 
 
                 <% if (recurring.userData[templateData.vak[i].short+"-uitleg"] == 'lastig') { %>
                   <input type="radio" name="<%= templateData.vak[i].short %>-uitleg" value="lastig"
-                  id="<%= templateData.vak[i].short %>-uitleg-radio-0" checked>
+                  id="<%= templateData.vak[i].short %>-uitleg-radio-2" checked>
                 <%}else{%>
                   <input type="radio" name="<%= templateData.vak[i].short %>-uitleg" value="lastig"
-                  id="<%= templateData.vak[i].short %>-uitleg-radio-0">
+                  id="<%= templateData.vak[i].short %>-uitleg-radio-2">
                 <%}%>
                 <label for="<%= templateData.vak[i].short %>-uitleg-radio-2">lastig</label>
               </div>
@@ -165,10 +157,10 @@
 
                 <% if (recurring.userData[templateData.vak[i].short+"-eigeninzichten"] != '') { %>
                   <textarea name="<%= templateData.vak[i].short %>-eigeninzichten" required
-                    id="<%= templateData.vak[i].short %>-eigeninzichten-0" cols="30" rows="10" placeholder='Eigen inzichten'><%= recurring.userData[templateData.vak[i].short+"-eigeninzichten"] %></textarea>
+                    id="<%= templateData.vak[i].short %>-eigeninzichten-0" cols="30" rows="5" placeholder='Eigen inzichten'><%= recurring.userData[templateData.vak[i].short+"-eigeninzichten"] %></textarea>
                 <%}else{%>
                   <textarea name="<%= templateData.vak[i].short %>-eigeninzichten" 
-                    id="<%= templateData.vak[i].short %>-eigeninzichten-0" cols="30" rows="10" placeholder='Eigen inzichten'></textarea>
+                    id="<%= templateData.vak[i].short %>-eigeninzichten-0" cols="30" rows="5" placeholder='Eigen inzichten'></textarea>
                 <%}%>
 
             </div>
@@ -177,3 +169,4 @@
           </fieldset>
 
           <% } %>
+        </div>

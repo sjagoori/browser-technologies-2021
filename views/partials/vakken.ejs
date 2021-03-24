@@ -1,0 +1,10 @@
+<fieldset>
+  <legend>Navigeer naar vak:</legend>
+  <nav>
+    <ul>
+      <% for (var i=0; i < vakken.length; i++) { %>
+        <li><a href="#<%= vakken[i].short %>" ><%= vakken[i].title %></a></li>
+      <% } %>
+    </ul>
+  </nav>
+</fieldset>
