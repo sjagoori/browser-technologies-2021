@@ -44,7 +44,7 @@ router.post("/back", (req, res) => {
 });
 
 router.post("/handleEnquette", async (req, res) => {
-  let z = req.body.oldData ? {...JSON.parse(req.body['oldData']),...req.body} : null
+  let z = req.body.oldData ? {...JSON.parse(req.body.oldData[0]),...req.body} : null
   
   if (z != null){
     delete z.oldData
@@ -53,14 +53,13 @@ router.post("/handleEnquette", async (req, res) => {
       "formData.json",
       JSON.stringify([{ hash: req.fingerprint.hash, userData: z }])
     ).then(result => res.render('confirm'))
-    
   }
   
       const a = req.body;
       const c = Object.values(a)
         .map((key) =>
           key == "" || (key[0] ? key[0] == "" && key[1] == "" : null)
-            ? key
+            ? (key,console.log(key))
             : delete key
         )
         .filter((elem) => typeof elem != "boolean").length;
