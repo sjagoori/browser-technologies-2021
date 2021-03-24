@@ -8,13 +8,13 @@
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "prestart": "npm run build",
-    "start": "node ./index.js",
-    "prebuild": "rimraf ./dist",
-    "build": "npm-run-all build:static:* && npm run build:html",
-    "build:html": "node scripts/build-html.js",
-    "build:static:css": "node scripts/build-css.js",
-    "build:static:script": "node scripts/build-assets.js"
+    // "prestart": "npm run build",
+    "start": "node ./index.js"
+    // "prebuild": "rimraf ./dist",
+    // "build": "npm-run-all build:static:* && npm run build:html",
+    // "build:html": "node scripts/build-html.js",
+    // "build:static:css": "node scripts/build-css.js",
+    // "build:static:script": "node scripts/build-assets.js"
   },
   "repository": {
     "type": "git",
