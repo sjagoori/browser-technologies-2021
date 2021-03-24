@@ -44,14 +44,18 @@ router.post("/back", (req, res) => {
 });
 
 router.post("/handleEnquette", async (req, res) => {
-  // req.body.oldData ? {...JSON.parse(req.body['oldData']),...req.body} : null
-  console.log(req.body)
-
-  writeFile(
-        "formData.json",
-        JSON.stringify([{ hash: req.fingerprint.hash, userData: req.body }])
-      );
+  let z = req.body.oldData ? {...JSON.parse(req.body['oldData']),...req.body} : null
+  
+  if (z != null){
+    delete z.oldData
+    console.log(z)
+    return writeFile(
+      "formData.json",
+      JSON.stringify([{ hash: req.fingerprint.hash, userData: z }])
+    ).then(result => res.render('confirm'))
     
+  }
+  
       const a = req.body;
       const c = Object.values(a)
         .map((key) =>
@@ -110,11 +114,11 @@ router.post("/handleEnquette", async (req, res) => {
         pattern: '[0-9]{9}'
       }} )
 
-      const oldData = formData.find((key) =>
-          key.hash == req.fingerprint.hash ? key : "none")
-  
+      const oldData = req.body
+          // console.log(re)
+
       return c > 0
-        ? res.render("forgotten", { renderData: e, hash: req.fingerprint.hash, oldData: JSON.stringify(oldData.userData) })
+        ? res.render("forgotten", { renderData: e, hash: req.fingerprint.hash, oldData: JSON.stringify(oldData) })
         : writeFile(
           "formData.json",
           JSON.stringify([{ hash: req.fingerprint.hash, userData: req.body }])
