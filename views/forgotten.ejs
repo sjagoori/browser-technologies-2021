@@ -8,7 +8,7 @@
 </head>
 <body>
   <form action="/handleEnquette" method="post" id="enquette" hash=<%=hash %>>
-    <h1>Deze ben je vergeten</h1>
+    <h1>Deze ben je vergeten, <%= name %> </h1>
     <% for (var key in renderData) { %>
       <fieldset>
         <legend><%= renderData[key].section %></legend>

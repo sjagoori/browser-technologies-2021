@@ -114,10 +114,11 @@ router.post("/handleEnquette", async (req, res) => {
       }} )
 
       const oldData = req.body
-          // console.log(re)
+      oldData['name'] = req.body.name
+  // console.log(oldData);
 
       return c > 0
-        ? res.render("forgotten", { renderData: e, hash: req.fingerprint.hash, oldData: JSON.stringify(oldData) })
+        ? res.render("forgotten", { renderData: e, hash: req.fingerprint.hash, oldData: JSON.stringify(oldData), name: capitalizeFirstLetter(req.body.name) })
         : writeFile(
           "formData.json",
           JSON.stringify([{ hash: req.fingerprint.hash, userData: req.body }])
@@ -143,6 +144,10 @@ async function writeFile(filename, content) {
   }
   // const file = await fs.readFile(filename, "utf8");
   // await fs.writeFile(filename, content);
+}
+
+function capitalizeFirstLetter(string) {
+  return string.charAt(0).toUpperCase() + string.slice(1);
 }
 
 module.exports = router;
