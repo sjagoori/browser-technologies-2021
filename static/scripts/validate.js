@@ -1,36 +1,77 @@
-console.log('validator running')
+console.log('validator running');
 
-setCache()
+setCache();
+bindFieldsetEvents();
 
-let a = Object.values(document.getElementsByTagName('fieldset')).map(key => key.id ? (key.addEventListener('change', e => handleFieldset(e, key.id), prefillCache(key))) : false).filter(elem => typeof elem == 'object')
+/**
+ * Function binds fieldset elements to event
+ * @requires prefillCache
+ */
+function bindFieldsetEvents() {
+  Object.values(document.getElementsByTagName('fieldset'))
+    .map(key => key.id
+      ? (key.addEventListener('change', e => handleFieldset(e, key.id), prefillCache()))
+      : false)
+    .filter(elem => typeof elem == 'object');
+}
 
+/**
+ * Function updates cache with changes in fieldsets
+ * @param {Event} e - event
+ * @param {String} parentId - element id
+ * @requires bindFieldsetEvents
+ */
 function handleFieldset(e, parentId) {
-  let worker = localStorage.getItem(parentId) ? JSON.parse(localStorage.getItem(parentId)) : (localStorage.setItem(parentId, JSON.stringify({ data: {} })), JSON.parse(localStorage.getItem(parentId)))
+  let worker = localStorage.getItem(parentId);
+    ?JSON.parse(localStorage.getItem(parentId));
+    : (localStorage.setItem(parentId, JSON.stringify({ data: {} })), JSON.parse(localStorage.getItem(parentId)));
 
   console.log(e.target.value);
 
-  worker.data[`${e.target.name}`] = e.target.value
-  localStorage.setItem(parentId, JSON.stringify(worker))
+  worker.data[`${e.target.name}`] = e.target.value;
+  localStorage.setItem(parentId, JSON.stringify(worker));
 }
 
-function prefillCache(parentId) {
+/**
+ * Function fills cache with input element's values 
+ * @requires setCache
+ */
+function prefillCache() {
   let z = document.getElementsByTagName('input')
-  let x = Object.values(z).map(key => key.parentElement.parentElement.parentElement.id != '' && key.parentElement.parentElement.parentElement.id != 'enquette' ? ({ input: key, field: key.parentElement.parentElement.parentElement.id }) : false).filter(elem => typeof elem == 'object')
-  let y = x.map(x => x.input.type == 'radio' && !x.input.checked ? false : x.input.type != 'radio' ? false : x).filter(elem => typeof elem == 'object')
+
+  let x = Object.values(z)
+    .map(key => key.parentElement.parentElement.parentElement.id != '' && key.parentElement.parentElement.parentElement.id != 'enquette'
+      ? ({ input: key, field: key.parentElement.parentElement.parentElement.id })
+      : false)
+    .filter(elem => typeof elem == 'object');
+
+  let y = x
+    .map(x => x.input.type == 'radio' && !x.input.checked
+      ? false : x.input.type != 'radio'
+        ? false
+        : x)
+    .filter(elem => typeof elem == 'object');
+
   y.map(y => {
-    let name = y.input.id
-    let saveData = { data: {} }
-    saveData.data[y.input.name] = y.input.value
+    let saveData = { data: {} };
+    saveData.data[y.input.name] = y.input.value;
 
-    let existing = localStorage.getItem(y.field) ? JSON.parse(localStorage.getItem(y.field)) : null
+    let existing = localStorage.getItem(y.field) ? JSON.parse(localStorage.getItem(y.field)) : null;
 
-    !existing.data[y.input.name] ? (existing.data[y.input.name] = y.input.value, localStorage.setItem(y.field, JSON.stringify(existing))) : localStorage.setItem(y.field, JSON.stringify(saveData));
-    return
+    return !existing.data[y.input.name]
+      ? (existing.data[y.input.name] = y.input.value, localStorage.setItem(y.field, JSON.stringify(existing)))
+      : localStorage.setItem(y.field, JSON.stringify(saveData));
   })
 }
 
-function setCache(){
-  Object.values(document.getElementsByTagName('fieldset')).map(key => key.id != '' ? localStorage.setItem(key.id, JSON.stringify({ data: {} })) : null)
+/**
+ * Function generates cache entries
+ */
+function setCache() {
+  Object.values(document.getElementsByTagName('fieldset'))
+    .map(key => key.id != ''
+      ? localStorage.setItem(key.id, JSON.stringify({ data: {} }))
+      : null);
 }
 
 // {y.input.id:  y.input.value}
