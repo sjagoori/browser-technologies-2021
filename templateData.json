@@ -17,10 +17,10 @@
       "short": "cssttr",
       "docent": [
         {
-          "voornaam": "Docent 1"
+          "voornaam": "Sanne"
         },
         {
-          "voornaam": "Docent 2"
+          "voornaam": "Vasilis"
         }
       ]
     },
@@ -41,10 +41,10 @@
       "short": "btech",
       "docent": [
         {
-          "voornaam": "Docent 1"
+          "voornaam": "Docent"
         },
         {
-          "voornaam": "Docent 2"
+          "voornaam": "Docent"
         }
       ]
     }
