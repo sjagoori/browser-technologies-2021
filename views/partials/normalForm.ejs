@@ -113,9 +113,11 @@
 
           <div>
             <h2>Eigen inzichten</h2>
-            <textarea name="<%= templateData.vak[i].short %>-eigeninzichten"
-              id="<%= templateData.vak[i].short %>-eigeninzichten-0" cols="30" rows="5"
-              placeholder='Eigen inzichten'></textarea>
+            <div>
+              <textarea name="<%= templateData.vak[i].short %>-eigeninzichten"
+                id="<%= templateData.vak[i].short %>-eigeninzichten-0" cols="30" rows="5"
+                placeholder='Eigen inzichten'></textarea>
+            </div>
           </div>
           <button type="submit" formaction="/saveProgress">Save progress</button>
 
