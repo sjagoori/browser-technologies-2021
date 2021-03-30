@@ -22,8 +22,8 @@ function bindFieldsetEvents() {
  * @requires bindFieldsetEvents
  */
 function handleFieldset(e, parentId) {
-  let worker = localStorage.getItem(parentId);
-    ?JSON.parse(localStorage.getItem(parentId));
+  let worker = localStorage.getItem(parentId)
+    ? JSON.parse(localStorage.getItem(parentId))
     : (localStorage.setItem(parentId, JSON.stringify({ data: {} })), JSON.parse(localStorage.getItem(parentId)));
 
   console.log(e.target.value);
@@ -45,6 +45,9 @@ function prefillCache() {
       : false)
     .filter(elem => typeof elem == 'object');
 
+  let a = x.map(key => key.input.id.includes('week') ? key : false).filter(elem => typeof elem == 'object')
+  // console.log(b);
+
   let y = x
     .map(x => x.input.type == 'radio' && !x.input.checked
       ? false : x.input.type != 'radio'
@@ -58,9 +61,15 @@ function prefillCache() {
 
     let existing = localStorage.getItem(y.field) ? JSON.parse(localStorage.getItem(y.field)) : null;
 
-    return !existing.data[y.input.name]
+    !existing.data[y.input.name]
       ? (existing.data[y.input.name] = y.input.value, localStorage.setItem(y.field, JSON.stringify(existing)))
       : localStorage.setItem(y.field, JSON.stringify(saveData));
+
+    let b = a.map(key => {
+      let storage = JSON.parse(localStorage.getItem(key.field))
+      storage.data[`${key.field}-week`] = [1, 3]
+      localStorage.setItem(key.field, JSON.stringify(storage))
+    })
   })
 }
 
