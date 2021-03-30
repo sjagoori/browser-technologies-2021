@@ -1,9 +1,11 @@
 body {
   margin: 0 auto;
-  width: clamp(20rem, 50vw, 60rem);
+  width: clamp(20rem, 50vw, 40rem);
+  /* margin: 5px; */
 }
 
-form fieldset, .slides {
+form fieldset,
+.slides {
   margin-top: 20px;
 }
 
@@ -14,16 +16,18 @@ nav ul {
   justify-content: space-around;
 }
 
-.slides{
+.slides {
+  /* display: none; */
   display: flex;
-  height: 100%;  
+  align-items: center;
+  height: 100%;
   overflow-x: auto;
   scroll-snap-type: x mandatory;
 
   scroll-behavior: smooth;
 }
 
-form fieldset[id]:nth-child(1n){
+form fieldset[id]:nth-child(1n) {
   scroll-snap-align: start;
   flex-shrink: 0;
   width: 80%;
@@ -37,9 +41,9 @@ form fieldset[id]:nth-child(1n){
   position: relative;
 }
 
-form fieldset[id] div:nth-child(n+2) div{
+form fieldset[id] div:nth-child(n+2) div {
   display: flex;
-width: max-content;
+  width: max-content;
   border-radius: 5px;
   overflow: hidden;
   border: .2px solid black;
@@ -52,13 +56,14 @@ form fieldset legend {
   color: white;
 }
 
-[type='radio']{
+[type='radio'] {
+  /* display: none; */
   width: 0px;
   visibility: hidden;
   display: none;
 }
 
-[type='radio']+label{
+label {
   display: block;
   width: max-content;
   padding: 5px 7px;
@@ -68,7 +73,7 @@ form fieldset legend {
 
 }
 
-[type='radio']:checked+label{
+[type='radio']:checked+label {
   background-color: black;
   color: white
 }
