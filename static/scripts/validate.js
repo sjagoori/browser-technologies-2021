@@ -13,6 +13,9 @@ function bindFieldsetEvents() {
       ? (key.addEventListener('change', e => handleFieldset(e, key.id), prefillCache()))
       : false)
     .filter(elem => typeof elem == 'object');
+
+  // Object.values(document.getElementsByTagName('fieldset'))
+  // .map(key => key.id ? checkFilled(key.id) : null)
 }
 
 /**
@@ -26,7 +29,7 @@ function handleFieldset(e, parentId) {
     ? JSON.parse(localStorage.getItem(parentId))
     : (localStorage.setItem(parentId, JSON.stringify({ data: {} })), JSON.parse(localStorage.getItem(parentId)));
 
-  console.log(e.target.value);
+  // console.log(e.target.value);
 
   worker.data[`${e.target.name}`] = e.target.value;
   localStorage.setItem(parentId, JSON.stringify(worker));
@@ -45,7 +48,7 @@ function prefillCache() {
       : false)
     .filter(elem => typeof elem == 'object');
 
-  let a = x.map(key => key.input.id.includes('week') ? key : false).filter(elem => typeof elem == 'object')
+  let a = x.map(key => key.input.id.includes('week') ? false : key).filter(elem => typeof elem == 'object')
   // console.log(b);
 
   let y = x
@@ -68,6 +71,7 @@ function prefillCache() {
     let b = a.map(key => {
       let storage = JSON.parse(localStorage.getItem(key.field))
       storage.data[`${key.field}-week`] = [1, 3]
+      storage.data[`${key.field}-eigeninzichten`] = ''
       localStorage.setItem(key.field, JSON.stringify(storage))
     })
   })
@@ -83,71 +87,57 @@ function setCache() {
       : null);
 }
 
-// {y.input.id:  y.input.value}
+function checkFilled(pick) {
+  let fieldset = JSON.parse(localStorage.getItem(pick))
+  // let a = Object.values(fieldset.data).map(key => key != '' || key != undefined ? true : false).filter(elem => elem == true).length
+  let checkEmptyString = Object.values(fieldset.data).map(key => key != '' ? key : false).filter(elem => typeof elem == 'boolean').length;
+  let checkEmptyObject = Object.values(fieldset.data).map(key => typeof key == 'object' && key.length == 0 ? false : key).filter(elem => typeof elem == 'boolean').length
+  console.log(pick, 'string', checkEmptyString);
+  console.log(pick, 'weeks', checkEmptyObject);
 
-
-// let template = {
-//   name: parentId,
-//   docent: e.target.name.includes('docent') ? e.target.value : undefined,
-//   week: [
-//     e.target.name.includes('Start') ? e.target.value : undefined,
-//     e.target.name.includes('End') ? e.target.value : undefined
-//   ],
-//   beoordeling: e.target.name.includes('beoordeling') ? e.target.value : undefined,
-//   lesstof: e.target.name.includes('lesstof') ? e.target.value : undefined,
-//   uitleg: e.target.name.includes('uitleg') ? e.target.value : undefined,
-//   eigeninzichten: e.target.name.includes('eigeninzichten') ? e.target.value : undefined,
-// }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+  // let a = Object.values(fieldset.data).map(key => key != '' || key != undefined ? key : false).length
+  return checkEmptyString > 0 || checkEmptyObject > 0 ? false : true
+}
 
 
 
 const form = document.getElementById('enquette')
-form.addEventListener('submit', e => handleForm(e))
+form.addEventListener('change', e => handleForm(e))
 form.children[form.children.length - 1].remove()
-const inputs = document.getElementsByTagName('input');
 
+const submitButtons = document.querySelectorAll('[formaction]');
+Object.values(submitButtons).map((key, index) => index == (submitButtons.length - 1) ? key.textContent = 'Submit' : key.remove())
+
+const inputs = document.getElementsByTagName('input');
+const navigationButtons = document.getElementsByTagName('a')
+
+// console.log(navigationButtons);
 function handleForm(e) {
   e.preventDefault() // delete when done validating
 
-  let submitButton = e.submitter.getAttribute('formaction') ? null : e.submitter
-  let textInput = Object.values(inputs).map(input => {
-    // if (input.type == 'text') checkText(input);
-    // if (input.type == 'number') checkNumber(input);
-  })
+  let parentElement = e.target.parentElement.parentElement.parentElement
+  let nextSibling = parentElement.nextElementSibling.id
+  // let navButton = Object.values(navigationButtons).find(key => key.href.substring(1) == parentElement.id ? key : 'no match')
+  let navButton = Object.values(navigationButtons).map(key => key.hash.substring(1) == parentElement.id ? key : false).filter(elem => typeof elem == 'object')[0]
 
-  new FormData(form);
+  if (checkFilled(parentElement.id)) {
+    document.getElementById(nextSibling).scrollIntoView({ behavior: 'smooth' })
+    console.log(parentElement.id);
+    navButton.style.textDecoration = 'line-through'
+  }
 
-  // return true  // return true if everything is good
+
+  checkAll()
+  // return checkAll() ? true : false
+}
+
+function checkAll() {
+
 }
 
 form.onformdata = (e) => {
   console.log('formdata fired');
-
-  // Get the form data from the event object
-  let data = e.formData;
-  for (var value of data.values()) {
-    console.log(value);
-  }
-
-  // submit the data via XHR
-  // var request = new XMLHttpRequest();
-  // request.open("POST", "/formHandler");
-  // request.send(data);
-};
+}
 
 
 
