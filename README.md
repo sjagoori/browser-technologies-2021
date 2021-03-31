@@ -13,11 +13,11 @@ Voor dit vak, maak ik een enquette dat waar de gebruiker vakken gedurende de min
 
 Mijn core functionaliteit is het invullen van een enquette. Deze wordt ondersteund met een server waar de gegevens opgeslagen wordt voor submittion of herstellen van de voortgang.
 
-### Wireflow
+### Wireflow (functional)
 
 ![Wireflow](./assets/wireflow.png)
 
-### Breakdown
+### Breakdown (functional, usable, and pleasurable)
 
 ![Breakdown](./assets/breakdown.png)
 
@@ -44,38 +44,72 @@ Om de website redelijk ruimte te geven op kleiner schermen zoals telefoons, heb 
 Mocht het ondersteund zijn, wordt het toegepast. Zo niet, dan wordt het met `vw` gedaan.
 
 ### Pleasurable 
-Om de ervaring helemaal compleet te maken, wordt de overbodige interactie overgenomen met javascript. De gebruiker hoeft niet meer op submit te klikken, de website merkt wanner alles ingevuld is en doet deze automatisch. Daarnaast laat het ook de voorgang zien door de voltooide vakken weg te strepen.
+Om de ervaring helemaal compleet te maken, wordt de overbodige interactie overgenomen met javascript. De gebruiker hoeft niet meer op submit te klikken, de website merkt wanner alles ingevuld is en doet deze automatisch. Daarnaast laat het ook de voorgang zien door de voltooide vakken weg te strepen. Om de status van elke stap in het proces bij te houden, is de `localStorage` ingezet.
 
 ![](./assets/layer_pleasurable.png)
 
 ## Browser testing
 
-| Device  | Browser |
-| ------- | ------- |
-| Desktop | Chrome  |
-| Desktop | Firefox |
-| Android | Chrome  |
-| Android | Firefox |
+| Device  | Browser          |
+| ------- | ---------------- |
+| Desktop | Chrome           |
+| Desktop | Firefox          |
+| Android | Chrome           |
+| Android | Firefox          |
+| Android | Samsung internet |
 
-### Test rapport
+## Test rapport
 1. Enquette invullen
+   
+* Chrome Desktop ✅        
+* Firefox Desktop ✅ 
 <details>
-<summary>rapport</summary>
-
-* Chrome Desktop | ✅  
-* Chrome Android | ✅    
-* Firefox Desktop | ✅  
-* Firefox Android | ✅  
-
+<summary>Chrome Android ✅ </summary>
+<video controls loop>
+  <source src="./assests/chrome_mobile.mp4" type="video/mp4">
+  Your browser does not support the video tag.
+</video>
+</details>
+<details>
+<summary>Firefox Android ✅ </summary>
+<video controls loop>
+  <source src="./assests/firefox_mobile.mp4" type="video/mp4">
+  Your browser does not support the video tag.
+</video>
+</details>
+<details>
+<summary>Samsung mobile ✅ </summary>
+<video controls loop>
+  <source src="./assests/samsung_mobile.mp4" type="video/mp4">
+  Your browser does not support the video tag.
+</video>
 </details>
 2. Usable en pleasurable (carousel) werkend
+   
+* Chrome Desktop ✅        
+* Firefox Desktop ✅ 
 <details>
-<summary>rapport</summary>
-* Chrome Desktop | ✅  
-* Chrome Android | ✅    
-* Firefox Desktop | ✅  
-* Firefox Android | ✅  
+<summary>Chrome Android ✅ </summary>
+<video controls loop>
+  <source src="./assests/chrome_mobile.mp4" type="video/mp4">
+  Your browser does not support the video tag.
+</video>
 </details>
+<details>
+<summary>Firefox Android ✅ </summary>
+<video controls loop>
+  <source src="./assests/firefox_mobile.mp4" type="video/mp4">
+  Your browser does not support the video tag.
+</video>
+</details>
+<details>
+<summary>Samsung mobile ✅ </summary>
+<video controls loop>
+  <source src="./assests/samsung_mobile.mp4" type="video/mp4">
+  Your browser does not support the video tag.
+</video>
+</details>
+
 3. Colors
 <details>
 <summary>rapport</summary>
@@ -93,41 +127,3 @@ Inactive input
 
 </details>
 
-## Structure
-De dataflow gaat als volgt: 
-
-1. Server renders form
-2. Users fills form
-3. Server fetches and saves
-4. Server returns saved data
-  
-### Data
-Om onderscheid te maken tussen de gebruikers, wordt er gebruik gemaakt van hashes. Hierdoor weet de server welk data bij welke gebruiker hoort.
-
-Hierbij een sample hoe dat eruit ziet met een vak als voorbeeld
-```JSON
-[
-  {
-    "hash": "61df5e0b4dd983a12353ea07e6291d73",
-    "userData": {
-      "studentnummer": "500123456",
-      "name": "Jouwnaam",
-      "btech-docent": "PPK",
-      "btech-week": [
-        1,
-        3
-      ],
-      "btech-eigeninzichten": "Lastig vak",
-      "btech-beoordeling": "6",
-      "btech-lesstof": "lastig",
-      "btech-uitleg": "wel oke"
-    }
-  }
-]
-```
-
-
-## Enhancements
-1. Custom validity messages met javasctipt
-2. Input velden met patterns ondersteunen met CSS (in)valid
-3. Een carousel ontwerp waarbij slecht een van per keer te zien is.
