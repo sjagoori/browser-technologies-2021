@@ -61,20 +61,20 @@ Om de ervaring helemaal compleet te maken, wordt de overbodige interactie overge
 1. Enquette invullen
 <details>
 <summary>rapport</summary>
-|         | Chrome | Chrome android | Firefox | Firefox android |
-| ------- | ------ | -------------- | ------- | --------------- |
-| Desktop | ✅      | ✅              | ✅       | ✅               |
-| Android | ✅      | ✅              | ✅       | ✅               |
-      
+
+* Chrome Desktop | ✅  
+* Chrome Android | ✅    
+* Firefox Desktop | ✅  
+* Firefox Android | ✅  
+
 </details>
 2. Usable en pleasurable (carousel) werkend
 <details>
 <summary>rapport</summary>
-|         | Chrome | Chrome android | Firefox | Firefox android |
-| ------- | ------ | -------------- | ------- | --------------- |
-| Desktop | ✅      | ✅              | ✅       | ✅               |
-| Android | ✅      | ✅              | ✅       | ✅               |
-      
+* Chrome Desktop | ✅  
+* Chrome Android | ✅    
+* Firefox Desktop | ✅  
+* Firefox Android | ✅  
 </details>
 3. Colors
 <details>
