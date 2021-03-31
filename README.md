@@ -47,6 +47,40 @@ Om de ervaring helemaal compleet te maken, wordt de overbodige interactie overge
 | Feature | ✅     |                |         |                 |
 
 
+## Structure
+De dataflow gaat als volgt: 
+
+1. Server renders form
+2. Users fills form
+3. Server fetches and saves
+4. Server returns saved data
+  
+### Data
+Om onderscheid te maken tussen de gebruikers, wordt er gebruik gemaakt van hashes. Hierdoor weet de server welk data bij welke gebruiker hoort.
+
+Hierbij een sample hoe dat eruit ziet met een vak als voorbeeld
+```JSON
+[
+  {
+    "hash": "61df5e0b4dd983a12353ea07e6291d73",
+    "userData": {
+      "studentnummer": "500123456",
+      "name": "Jouwnaam",
+      "btech-docent": "PPK",
+      "btech-week": [
+        1,
+        3
+      ],
+      "btech-eigeninzichten": "Lastig vak",
+      "btech-beoordeling": "6",
+      "btech-lesstof": "lastig",
+      "btech-uitleg": "wel oke"
+    }
+  }
+]
+```
+
+
 ## Enhancements
 1. Custom validity messages met javasctipt
 2. Input velden met patterns ondersteunen met CSS (in)valid
