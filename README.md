@@ -111,3 +111,10 @@ Inactive input
 
 </details>
 
+## Bronnen
+[Concept door cmda-minor-web](https://github.com/cmda-minor-web/browser-technologies-2021/blob/master/course/Usecase-enquete.md)  
+[MDN voor snippets & browser support](https://developer.mozilla.org)    
+[Caniuse voor browser support](https://caniuse.com/)
+
+## License
+[GPLv3](https://choosealicense.com/licenses/mit/)
