@@ -125,6 +125,15 @@ router.post("/handleEnquette", async (req, res) => {
         ).then(result => res.redirect('/'))
 });
 
+router.post("/handleFetch", async (req, res) => {
+  let mutate = Object.values(req.body).map(key => JSON.parse(key).data)
+  let formData = Object.assign({}, ...mutate)
+  writeFile(
+    "formData.json",
+    JSON.stringify([{ hash: req.fingerprint.hash, userData: formData }])).then(result => {return true })
+  // return true;
+})
+
 async function writeFile(filename, content) {
   try {
     let a = await fs.writeFile(filename, content);
