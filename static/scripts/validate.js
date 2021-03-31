@@ -111,19 +111,16 @@ Object.values(submitButtons).map((key, index) => index == (submitButtons.length 
 const inputs = document.getElementsByTagName('input');
 const navigationButtons = document.getElementsByTagName('a')
 
-// console.log(navigationButtons);
 function handleForm(e) {
-  e.preventDefault() // delete when done validating
+  e.preventDefault() // 
 
   let parentElement = e.target.parentElement.parentElement.parentElement
-  let nextSibling = parentElement.nextElementSibling.id
-  // let navButton = Object.values(navigationButtons).find(key => key.href.substring(1) == parentElement.id ? key : 'no match')
-  let navButton = Object.values(navigationButtons).map(key => key.hash.substring(1) == parentElement.id ? key : false).filter(elem => typeof elem == 'object')[0]
+  let nextSibling = parentElement.nextElementSibling ? parentElement.nextElementSibling.id : parentElement.id
+  let navButton = nextSibling ? Object.values(navigationButtons).map(key => key.hash.substring(1) == parentElement.id ? key : false).filter(elem => typeof elem == 'object')[0] : null
 
   if (checkFilled(parentElement.id)) {
-    document.getElementById(nextSibling).scrollIntoView({ behavior: 'smooth' })
-    // console.log(parentElement.id);
-    navButton.style.textDecoration = 'line-through'
+    navButton ? document.getElementById(nextSibling).scrollIntoView({ behavior: 'smooth' }) : null
+    navButton ? navButton.style.textDecoration = 'line-through' : null
   }
 
   return checkAll() ? true : false
@@ -139,7 +136,7 @@ function checkAll() {
 
   inputsInVakken.forEach(element => {
     Object.values(element).map(key => {
-      if (typeof key == 'object'){
+      if (typeof key == 'object') {
         if (key.length < 2) empty++
       }
       if (key == '') empty++
@@ -153,7 +150,7 @@ function checkAll() {
 form.onformdata = (e) => {
   console.log('formdata fired');
 }
-
+A
 
 
 function checkText(input) {
