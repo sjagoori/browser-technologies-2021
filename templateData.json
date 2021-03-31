@@ -5,10 +5,10 @@
       "short": "wafs",
       "docent": [
         {
-          "voornaam": "Docent 1"
+          "voornaam": "Joost"
         },
         {
-          "voornaam": "Docent 2"
+          "voornaam": "Suus"
         }
       ]
     },
@@ -29,10 +29,10 @@
       "short": "pwapps",
       "docent": [
         {
-          "voornaam": "Docent 1"
+          "voornaam": "Joost"
         },
         {
-          "voornaam": "Docent 2"
+          "voornaam": "Declan"
         }
       ]
     },
@@ -41,10 +41,10 @@
       "short": "btech",
       "docent": [
         {
-          "voornaam": "Docent"
+          "voornaam": "PPK"
         },
         {
-          "voornaam": "Docent"
+          "voornaam": "Koop"
         }
       ]
     }
