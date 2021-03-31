@@ -65,24 +65,15 @@ Om de ervaring helemaal compleet te maken, wordt de overbodige interactie overge
 * Firefox Desktop ✅ 
 <details>
 <summary>Chrome Android ✅ </summary>
-<video controls loop>
-  <source src="./assests/chrome_mobile.mp4" type="video/mp4">
-  Your browser does not support the video tag.
-</video>
+<img src="./assets/chrome_mobile.gif" />
 </details>
 <details>
 <summary>Firefox Android ✅ </summary>
-<video controls loop>
-  <source src="./assests/firefox_mobile.mp4" type="video/mp4">
-  Your browser does not support the video tag.
-</video>
+<img src="./assets/firefox_mobile.gif" />
 </details>
 <details>
 <summary>Samsung mobile ✅ </summary>
-<video controls loop>
-  <source src="./assests/samsung_mobile.mp4" type="video/mp4">
-  Your browser does not support the video tag.
-</video>
+<img src="./assets/samsung_mobile.gif" />
 </details>
 2. Usable en pleasurable (carousel) werkend
    
@@ -90,27 +81,18 @@ Om de ervaring helemaal compleet te maken, wordt de overbodige interactie overge
 * Firefox Desktop ✅ 
 <details>
 <summary>Chrome Android ✅ </summary>
-<video controls loop>
-  <source src="./assests/chrome_mobile.mp4" type="video/mp4">
-  Your browser does not support the video tag.
-</video>
+<img src="./assets/chrome_mobile.gif" />
 </details>
 <details>
 <summary>Firefox Android ✅ </summary>
-<video controls loop>
-  <source src="./assests/firefox_mobile.mp4" type="video/mp4">
-  Your browser does not support the video tag.
-</video>
+<img src="./assets/firefox_mobile.gif" />
 </details>
 <details>
 <summary>Samsung mobile ✅ </summary>
-<video controls loop>
-  <source src="./assests/samsung_mobile.mp4" type="video/mp4">
-  Your browser does not support the video tag.
-</video>
+<img src="./assets/samsung_mobile.gif" />
 </details>
 
-3. Colors
+1. Colors
 <details>
 <summary>rapport</summary>
 Headers
