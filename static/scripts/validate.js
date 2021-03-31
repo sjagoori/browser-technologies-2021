@@ -118,7 +118,10 @@ function handleForm(e) {
 
   if (checkFilled(parentElement.id)) {
     navButton ? document.getElementById(nextSibling).scrollIntoView({ behavior: 'smooth' }) : null
-    navButton ? navButton.style.textDecoration = 'line-through' : null
+    if(navButton) {
+      navButton.style.textDecoration = 'line-through'
+      navButton.style.color = '#8B8B8B'
+    }
   }
 
   let myForm = document.getElementById('enquette');
