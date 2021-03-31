@@ -40,12 +40,48 @@ Om de ervaring helemaal compleet te maken, wordt de overbodige interactie overge
 
 ## Browser testing
 
-| Feature | Chrome | Chrome android | Firefox | Firefox android |
-| ------- | ------ | -------------- | ------- | --------------- |
-| Feature | ✅     |                |         |                 |
-| Feature | ❌     |                |         |                 |
-| Feature | ✅     |                |         |                 |
+| Device  | Browser |
+| ------- | ------- |
+| Desktop | Chrome  |
+| Desktop | Firefox |
+| Android | Chrome  |
+| Android | Firefox |
 
+### Test rapport
+1. Enquette invullen
+<details>
+<summary>rapport</summary>
+|         | Chrome | Chrome android | Firefox | Firefox android |
+| ------- | ------ | -------------- | ------- | --------------- |
+| Desktop | ✅      | ✅              | ✅       | ✅               |
+| Android | ✅      | ✅              | ✅       | ✅               |
+      
+</details>
+2. Usable en pleasurable (carousel) werkend
+<details>
+<summary>rapport</summary>
+|         | Chrome | Chrome android | Firefox | Firefox android |
+| ------- | ------ | -------------- | ------- | --------------- |
+| Desktop | ✅      | ✅              | ✅       | ✅               |
+| Android | ✅      | ✅              | ✅       | ✅               |
+      
+</details>
+3. Colors
+<details>
+<summary>rapport</summary>
+Headers
+<img  src='./assets/headers.png' />
+
+Navigation labels
+<img  src='./assets/label.png' />
+
+Active input
+<img  src='./assets/input_active.png' />
+
+Inactive input
+<img  src='./assets/input_back.png' />
+
+</details>
 
 ## Structure
 De dataflow gaat als volgt: 
