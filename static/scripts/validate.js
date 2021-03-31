@@ -122,17 +122,32 @@ function handleForm(e) {
 
   if (checkFilled(parentElement.id)) {
     document.getElementById(nextSibling).scrollIntoView({ behavior: 'smooth' })
-    console.log(parentElement.id);
+    // console.log(parentElement.id);
     navButton.style.textDecoration = 'line-through'
   }
 
-
-  checkAll()
-  // return checkAll() ? true : false
+  return checkAll() ? true : false
 }
 
 function checkAll() {
+  let vakken = Object.values(localStorage);
+  // console.log(vakken.);
+  let inputsInVakken = vakken.map(key => JSON.parse(key).data)
+  console.log('print\t', inputsInVakken);
 
+  var empty = 0
+
+  inputsInVakken.forEach(element => {
+    Object.values(element).map(key => {
+      if (typeof key == 'object'){
+        if (key.length < 2) empty++
+      }
+      if (key == '') empty++
+    })
+  })
+
+  console.log(empty);
+  return empty > 0 ? false : true
 }
 
 form.onformdata = (e) => {
