@@ -3,8 +3,8 @@
 
 ## Demo
 
-- [Live demo](#)
-
+- [Live demo](https://browser-technologies-2021.herokuapp.com/)
+! hosting bewaart geen data
 
 ## Concept
 Voor dit vak, maak ik een enquette dat waar de gebruiker vakken gedurende de minor in kan vullen. De gebruiker wilt met gemak de enquette invullen en indien beschikbaar, de UX verbeteren met enchancements
@@ -76,7 +76,9 @@ Om de ervaring helemaal compleet te maken, wordt de overbodige interactie overge
 <img src="./assets/samsung_mobile.gif" />
 </details>
 2. Usable en pleasurable (carousel) werkend
-   
+
+Op deze laag was het merkwaardig hoe de carousel op Firefox Android renderde, be maximale breedte op input velden waren groter dan beschreven in de CSS. Na het nogmaals in de CSS gekeken te hebben, kwam ik erachter dat max-content niet werkt op firefox (zie [caniuse](https://caniuse.com/?search=max-content)).
+
 * Chrome Desktop ✅        
 * Firefox Desktop ✅ 
 <details>
@@ -92,7 +94,7 @@ Om de ervaring helemaal compleet te maken, wordt de overbodige interactie overge
 <img src="./assets/samsung_mobile.gif" />
 </details>
 
-1. Colors
+3. Colors
 <details>
 <summary>rapport</summary>
 Headers
