@@ -33,6 +33,16 @@ Desondanks de `<fieldset>` een goed onderscheid maakt tussen de vakken, is het f
 
 ![](./assets/layer_usable.png)
 
+**prefers-reduced-motion**
+
+Doordat er best wat beweging in het ontwerp zit, heb ik voor de gebruikers die dit niet willen het uitgezet met de media query `@media (prefers-reduced-motion)`.
+
+Om de website redelijk ruimte te geven op kleiner schermen zoals telefoons, heb ik met clamp deze responsive gemaakt. Clamp is niet overal ondersteund. Hiervoor heb ik de volgende toegepast: 
+
+`@supports (width: clamp(1px, 1px, 1px))`
+
+Mocht het ondersteund zijn, wordt het toegepast. Zo niet, dan wordt het met `vw` gedaan.
+
 ### Pleasurable 
 Om de ervaring helemaal compleet te maken, wordt de overbodige interactie overgenomen met javascript. De gebruiker hoeft niet meer op submit te klikken, de website merkt wanner alles ingevuld is en doet deze automatisch. Daarnaast laat het ook de voorgang zien door de voltooide vakken weg te strepen.
 
